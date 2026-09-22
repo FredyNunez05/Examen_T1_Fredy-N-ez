@@ -31,7 +31,7 @@ public class Alumno {
         this.tipo_doc = tipo_doc;
     }
 
-    public String getNumeo_documento() {
+    public String getNumero_documento() {
         return numero_documento;
     }
 
@@ -50,8 +50,15 @@ public class Alumno {
     }
 
     public void setNivel_socioeconomico(String nivel_socioeconomico) {
-        this.nivel_socioeconomico = nivel_socioeconomico;
+    if (nivel_socioeconomico == null || nivel_socioeconomico.trim().isEmpty()) {
+        throw new IllegalArgumentException("El nivel socioeconómico no puede estar vacío.");
     }
+    String nivelMayuscula = nivel_socioeconomico.trim().toUpperCase();
+    if (!nivelMayuscula.equals("A") && !nivelMayuscula.equals("B") && !nivelMayuscula.equals("C")) {
+        throw new IllegalArgumentException("El nivel socioeconómico debe ser estrictamente A, B o C.");
+    }
+    this.nivel_socioeconomico = nivelMayuscula;
+}
 
     public String getBeca() {
         return beca;
