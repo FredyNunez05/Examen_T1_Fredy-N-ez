@@ -9,5 +9,56 @@ package consola.instituto;
  * @author UCA40411
  */
 public class Alumno {
+    private String nombre;
+    private String tipo_doc;
+    private String numero_documento;
+    private String nivel_socioeconomico;
+    private String beca;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipo_doc() {
+        return tipo_doc;
+    }
+
+    public void setTipo_doc(String tipo_doc) {
+        this.tipo_doc = tipo_doc;
+    }
+
+    public String getNumeo_documento() {
+        return numero_documento;
+    }
+
+    public void setNumero_documento(String tipoDocumento, String numeroDocumento) {
+    if (tipoDocumento.equalsIgnoreCase("DNI") && numeroDocumento.length() != 8) {
+        throw new IllegalArgumentException("El DNI debe tener exactamente 8 dígitos.");
+    }
+    if (tipoDocumento.equalsIgnoreCase("Carné de Residencia") && numeroDocumento.length() != 11) {
+        throw new IllegalArgumentException("El Carné de Residencia debe tener exactamente 11 dígitos.");
+    }
+    this.numero_documento = numeroDocumento;
+    }
+
+    public String getNivel_socioeconomico() {
+        return nivel_socioeconomico;
+    }
+
+    public void setNivel_socioeconomico(String nivel_socioeconomico) {
+        this.nivel_socioeconomico = nivel_socioeconomico;
+    }
+
+    public String getBeca() {
+        return beca;
+    }
+
+    public void setBeca(String beca) {
+        this.beca = beca;
+    }
     
 }

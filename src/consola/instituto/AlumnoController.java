@@ -4,10 +4,13 @@
  */
 package consola.instituto;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author UCA40411
  */
 public class AlumnoController {
+    ArrayList<Alumno> alumno = new ArrayList<>();
     
 }
