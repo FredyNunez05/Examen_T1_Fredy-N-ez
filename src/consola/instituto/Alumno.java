@@ -39,7 +39,7 @@ public class Alumno {
     if (tipoDocumento.equalsIgnoreCase("DNI") && numeroDocumento.length() != 8) {
         throw new IllegalArgumentException("El DNI debe tener exactamente 8 dígitos.");
     }
-    if (tipoDocumento.equalsIgnoreCase("Carné de Residencia") && numeroDocumento.length() != 11) {
+    if (tipoDocumento.equalsIgnoreCase("Carne de Residencia") && numeroDocumento.length() != 11) {
         throw new IllegalArgumentException("El carné de Residencia debe tener exactamente 11 dígitos.");
     }
     this.numero_documento = numeroDocumento;
@@ -68,7 +68,32 @@ public class Alumno {
         this.beca = beca;
     }
     
-    void verDatos() {
-        System.out.println("Alumno: " + this.nombre + "Tipo documento: " + this.tipo_doc + "Nro documento: " + this.numero_documento + "Nivel socioeconómico: " + this.nivel_socioeconomico + "Beca: " + this.beca);
+    public void verDatos() {
+    System.out.println("Alumno: " + this.nombre + " | Doc: " + this.numero_documento + " | Pensión Final: S/. " + this.calcularPensionFinal());
+}
+    
+    public double calcularPensionFinal() {
+    double tarifaBase = 0.0;
+    
+
+    if (this.nivel_socioeconomico != null) {
+        if (this.nivel_socioeconomico.equalsIgnoreCase("A")) {
+            tarifaBase = 1000.0; 
+        } else if (this.nivel_socioeconomico.equalsIgnoreCase("B")) {
+            tarifaBase = 800.0;
+        } else if (this.nivel_socioeconomico.equalsIgnoreCase("C")) {
+            tarifaBase = 600.0;
+        }
+    }
+    
+
+    if (this.beca != null) {
+        if (this.beca.equalsIgnoreCase("Total")) {
+            return 0.0; 
+        } else if (this.beca.equalsIgnoreCase("Parcial")) {
+            return tarifaBase * 0.50;
+        }
+    }
+    return tarifaBase;
     }
 }
