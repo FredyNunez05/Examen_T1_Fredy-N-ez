@@ -23,5 +23,10 @@ public class AlumnoController {
     
     public void listarAlumnos() {
         System.out.println("Los alumnos de la lista son: ");
+        for(int i = 0; i < this.listaAlumnos.size(); i++) {
+            Alumno actual;
+            actual = this.listaAlumnos.get(i);
+            actual.verDatos();
+        }
     }
 }
