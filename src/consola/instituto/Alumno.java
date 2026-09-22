@@ -40,7 +40,7 @@ public class Alumno {
         throw new IllegalArgumentException("El DNI debe tener exactamente 8 dígitos.");
     }
     if (tipoDocumento.equalsIgnoreCase("Carné de Residencia") && numeroDocumento.length() != 11) {
-        throw new IllegalArgumentException("El Carné de Residencia debe tener exactamente 11 dígitos.");
+        throw new IllegalArgumentException("El carné de Residencia debe tener exactamente 11 dígitos.");
     }
     this.numero_documento = numeroDocumento;
     }
@@ -61,4 +61,7 @@ public class Alumno {
         this.beca = beca;
     }
     
+    void verDatos() {
+        System.out.println("Alumno: " + this.nombre + "Tipo documento: " + this.tipo_doc + "Nro documento: " + this.numero_documento + "Nivel socioeconómico: " + this.nivel_socioeconomico + "Beca: " + this.beca);
+    }
 }
